@@ -1,0 +1,6 @@
+@ProyectUltraGroup_HostAddress = http://localhost:5076
+
+GET {{ProyectUltraGroup_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
