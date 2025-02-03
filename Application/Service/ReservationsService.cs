@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+﻿using Application.Interface;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Application.Service
 {
     public class ReservationsService : IReservationsService
     {

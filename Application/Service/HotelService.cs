@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+﻿using Application.Interface;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Application.Service
 {
     public class HotelService : IHotelService
     {
@@ -55,7 +55,7 @@ namespace Application.Services
             hotel.Enabled = !hotel.Enabled;
             await _context.SaveChangesAsync();
             return true;
-        } 
+        }
 
         public async Task<bool> ToggleFavoriteAsync(int id)
         {
@@ -71,7 +71,7 @@ namespace Application.Services
         public async Task<List<string>> GetLocationAsync()
         {
             return await _context.Hotel
-                .Select(h => h.Location) 
+                .Select(h => h.Location)
                 .Distinct()
                 .ToListAsync();
         }
