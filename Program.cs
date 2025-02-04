@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IHotelService, HotelService>();
 builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IReservationsService, ReservationsService>();
+builder.Services.AddScoped<ITavelersService, TravelersService>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -12,6 +12,8 @@ namespace Application.Interface
         Task<List<Reservations>> GetAllReservationsAsync();
         Task<Reservations> GetReservationByIdAsync(int id);
         Task<Reservations> CreateReservationAsync(Reservations reservation);
+        Task<(List<Reservations>, List<Travelers>)> GetReservationsByServiceOwnerAsync(string idServiceOwner);
+
     }
 }
 

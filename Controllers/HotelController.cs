@@ -13,7 +13,7 @@ public class HotelController : ControllerBase
         _hotelService = hotelService;
     }
 
-    [HttpGet]
+    [HttpGet("list")]
     public async Task<ActionResult<IEnumerable<Hotel>>> GetAllHotels()
     {
         var hotels = await _hotelService.GetAllHotelsAsync();
@@ -23,7 +23,7 @@ public class HotelController : ControllerBase
         return Ok(hotels);
     }
 
-    [HttpPost]
+    [HttpPost("create")]
     public async Task<ActionResult<Hotel>> CreateHotel([FromBody] Hotel hotel)
     {
         if (hotel == null || string.IsNullOrEmpty(hotel.HotelName) || string.IsNullOrEmpty(hotel.Location))

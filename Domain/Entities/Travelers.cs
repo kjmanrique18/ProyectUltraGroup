@@ -13,6 +13,7 @@ namespace Domain.Entities
     {
         [Key]
         public int Id { get; set; }
+        public string? IdServiceOwner { get; set; }
         public string? FullName { get; set; }
         public DateTime BirthDate { get; set; }
         public string? Gender { get; set; }
@@ -20,8 +21,7 @@ namespace Domain.Entities
         public string? DocumentNumber { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
-        public string? FullNameEmergency { get; set; }
-        public string? PhoneEmergency { get; set; }
+      
 
     }
 }

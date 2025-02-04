@@ -35,11 +35,28 @@ namespace Application.Service
 
         public async Task<Reservations> CreateReservationAsync(Reservations reservation)
         {
+            var room = await _context.Room.FindAsync(reservation.RoomId);
 
+            reservation.TotalPrice = room.BaseCost + room.Taxes;
 
             _context.Reservation.Add(reservation);
             await _context.SaveChangesAsync();
             return reservation;
         }
+
+        public async Task<(List<Reservations>, List<Travelers>)> GetReservationsByServiceOwnerAsync(string idServiceOwner)
+        {
+            var reservations = await _context.Reservation.Where(r => _context.Traveler.Any(t => t.Id == r.TravelerId && t.IdServiceOwner == idServiceOwner)).ToListAsync();
+
+            var travelers = await _context.Traveler
+                .Where(t => t.IdServiceOwner == idServiceOwner)
+                .ToListAsync();
+
+            return (reservations, travelers);
+
+        }
+
+
     }
 }
+

@@ -21,7 +21,9 @@ namespace Domain.Entities
         public decimal TotalPrice { get; set; }
         public string? Status { get; set; }
         public bool Enabled { get; set; }
-        public DateTime? CreationDate { get; set; }
+        public DateTime? CreationDate { get; set; } = DateTime.Now;
+        public string? FullNameEmergency { get; set; }
+        public string? PhoneEmergency { get; set; }
 
         public virtual Travelers? Traveler { get; set; }
         public virtual Hotel? Hotel { get; set; }
